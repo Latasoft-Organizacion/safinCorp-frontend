@@ -1,0 +1,41 @@
+<section class="py-12 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-semibold text-gray-800">Galería de Videos</h1>
+    </header>
+
+    <!-- Iterar sobre cada evento -->
+    <div *ngFor="let video of videos" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 mb-12">
+
+      <!-- Título del Evento -->
+      <h2 class="text-center text-2xl font-bold text-gray-900 mb-2">{{ video.nombre }}</h2>
+
+      <!-- Descripción del Evento -->
+      <p class="text-gray-700 text-center text-lg mb-6">{{ video.descripcion }}</p>
+
+      <!-- Video del Evento -->
+      <div *ngIf="video.link && video.link.length > 0" class="flex justify-center mb-6">
+        <iframe 
+          [src]="video.link | safeUrl" 
+          class="w-full md:w-3/4 lg:w-2/3 h-80 rounded-lg shadow-md" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Galería de fotos en Slider (Solo si hay fotos) -->
+      <div *ngIf="video.fotos && video.fotos.length > 0" class="mt-6">
+        <h3 class="text-center text-xl font-semibold text-gray-800 mb-4">Fotos del Evento</h3>
+
+        <div class="flex justify-center">
+          <swiper-container #swiper class="swiper-gallery w-full md:w-3/4 lg:w-2/3" navigation="true" pagination="true">
+            <swiper-slide *ngFor="let foto of video.fotos">
+              <img [src]="foto" alt="Foto del evento" class="w-full h-72 object-cover rounded-lg shadow-md">
+            </swiper-slide>
+          </swiper-container>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

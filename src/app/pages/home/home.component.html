@@ -1,0 +1,84 @@
+<main class="flex-grow">
+    <!-- Sección para el slider con Swiper -->
+    <section>
+      <!-- Aquí irá tu slider Swiper -->
+       <app-slaider></app-slaider>
+    </section>
+  
+    <!-- Sección con título y botones -->
+    <section class="mt-10 px-4">
+      <!-- Contenedor general -->
+      <!-- flex-col en mobile, flex-row en pantallas a partir de sm -->
+      <div class="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-6">
+  
+        <!-- Título -->
+        <h3 class="text-2xl font-semibold whitespace-nowrap ">
+          Cotiza tu seguro hoy
+        </h3>
+  
+        <!-- Contenedor de botones -->
+        <!-- En móvil, se muestran en columna (flex-col).
+             A partir de sm, se alinean en una fila (sm:flex-row). -->
+        <div class="flex flex-col gap-2 sm:flex-row sm:gap-2">
+  
+          <!-- Botón 1 -->
+          <button
+            class="bg-[#5CB85C] text-white uppercase 
+                   font-semibold rounded-md 
+                   px-6 py-3 hover:bg-[#4cae4c] transition-colors"
+          >
+            Cotizar Seguro
+          </button>
+  
+          <!-- Botón 2 -->
+          <button
+            class="bg-[#F0AD4E] text-white uppercase
+                   font-semibold rounded-md
+                   px-6 py-3 hover:bg-[#ec9c2d] transition-colors"
+          >
+            Denunciar Siniestro
+          </button>
+  
+          <!-- Botón 3 -->
+          <button
+            class="bg-[#337AB7] text-white uppercase
+                   font-semibold rounded-md
+                   px-6 py-3 hover:bg-[#286090] transition-colors"
+          >
+            Pagar Póliza
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10 px-4">
+      <h2 class="text-2xl  text-center ">
+        Cotiza <span class="text-[#009AAB]">elige</span> y asegurate
+      </h2>
+
+      <div class="row mt-2">
+        <figure>
+          <img src="assets/Proceso-negocioSC.png" alt="Seguro de auto" class="w-full md:w-full object-cover" />
+        </figure>
+      </div>
+      <div class="row mt-2">
+        <h2 class="text-2xl text-center">
+          y en la renovación, <span class="text-[#009AAB] font-bold">elige</span> el más conveniente
+        </h2>
+      </div>
+      <br>
+      <div class="row mt-2 text-center text-xl w-5/6 sm:w-2/4 m-auto mb-3">
+        <h3>
+          <span class="text-[#009AAB] font-bold">Si tu producto no es el más conveniente</span>
+          al momento de renovar, <span class="text-[#F99193] font-bold">cotizamos uno nuevo</span>
+          para entregarte la cotización más conveniente
+        </h3>
+      </div>
+      
+    </section>
+
+    <section id="nuestras-aliansas">
+      <app-nuestras-aliansas></app-nuestras-aliansas>
+    </section>
+  </main>
+  

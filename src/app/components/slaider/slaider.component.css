@@ -1,0 +1,148 @@
+/* Contenedor general del slider */
+.slider-section {
+    width: 100%;
+    /* Ajusta la altura según lo que quieras:
+       - 100vh para pantalla completa
+       - un valor en px o vh para altura fija
+    */
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Clase principal del swiper */
+  .mySwiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Cada slide con imagen de fondo */
+  .slide-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* Capa oscura encima de la imagen para resaltar el texto */
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 8px;
+  }
+  
+  /* Título y descripción */
+  .slide-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .slide-description {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Botón de llamada a la acción */
+  .cta-button {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .cta-button:hover {
+    background-color: #e68a00;
+  }
+  
+  /* Flechas de navegación */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff; /* Cambia el color de las flechas */
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Paginación (los bullets) */
+  .swiper-pagination-bullet {
+    background: #fff; /* Bullets en blanco */
+    opacity: 0.8;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #ff9900; /* Bullet activo en naranja */
+  }
+  
+/* Asegurarse de que el contenedor de Swiper tenga altura completa */
+swiper-container {
+  width: 100%;
+  height: 100%;
+  display: block;  /* Importante para que ocupe todo el espacio disponible */
+}
+
+/* Estilo para cada slide */
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  background-size: cover !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Mejorar la visibilidad de la navegación */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff9900 !important;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Mejorar la visibilidad de la paginación */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.8) !important;
+  opacity: 0.8 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff9900 !important;
+  opacity: 1 !important;
+}
+
+/* Aplica a cada slide por defecto (antes de estar activo) */
+.slide-item {
+  /* Partimos de opacidad 0 y un ligero zoom/reducción (o desplazamiento) */
+  opacity: 0;
+  transform: scale(0.9);
+  /* Transición para que al cambiar de clase, la animación sea suave */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Cuando el slide está activo */
+.slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Cuando el slide está inactivo (opcionalmente, podemos dejarlo igual a .slide-item) */
+.slide-inactive {
+  opacity: 0;
+  transform: scale(0.95);
+}

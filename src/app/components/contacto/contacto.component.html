@@ -1,0 +1,86 @@
+<!-- Sección de encabezado con fondo azul -->
+<section class="bg-blue-500 py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">CONTACTO</h2>
+    </div>
+  </section>
+  
+  <!-- Sección del formulario -->
+  <section class="container mx-auto px-4 py-8">
+    <!-- Texto introductorio -->
+    <p class="text-gray-600 mb-6 text-center">
+      Contáctate con nosotros y uno de nuestros representantes se comunicará contigo 
+      dentro de las próximas 24 horas.
+    </p>
+  
+    <!-- Formulario -->
+    <form class=" mx-auto max-w-lg space-y-5 ">
+      <!-- Nombre -->
+      <div>
+        <label for="nombre" class="block font-semibold text-gray-700 mb-1">
+          Nombre
+        </label>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Nombre o Razón Social"
+          class="w-full border border-gray-300 rounded p-2 
+                 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+  
+      <!-- Email -->
+      <div>
+        <label for="email" class="block font-semibold text-gray-700 mb-1">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Ingrese su email"
+          class="w-full border border-gray-300 rounded p-2 
+                 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+  
+      <!-- Teléfono -->
+      <div>
+        <label for="telefono" class="block font-semibold text-gray-700 mb-1">
+          Teléfono
+        </label>
+        <input
+          type="tel"
+          id="telefono"
+          placeholder="Ingrese su teléfono o celular"
+          class="w-full border border-gray-300 rounded p-2 
+                 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+  
+      <!-- Mensaje -->
+      <div>
+        <label for="mensaje" class="block font-semibold text-gray-700 mb-1">
+          Mensaje
+        </label>
+        <textarea
+          id="mensaje"
+          rows="4"
+          placeholder="Explique detalladamente lo que desea asegurar"
+          class="w-full border border-gray-300 rounded p-2 
+                 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+      </div>
+  
+      <!-- Botón de envío -->
+      <button
+        type="submit"
+        class="bg-blue-500 text-white font-semibold 
+               px-6 py-2 rounded hover:bg-blue-600
+               focus:outline-none focus:ring-2 focus:ring-blue-400
+               transition-colors"
+      >
+        Enviar
+      </button>
+    </form>
+  </section>
+  

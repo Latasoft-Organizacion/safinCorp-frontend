@@ -1,0 +1,91 @@
+<header class="bg-white border-b shadow">
+    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div [routerLink]="'/inicio'" class="flex items-center gap-9 cursor-pointer">
+        <div class="flex flex-col">
+          <span class="text-xl font-bold text-[#152131] uppercase font-sans">Safin Corp</span>
+          <span class="text-lg text-[#152131]">corredora de seguros</span>
+        </div>
+        <img
+          src="assets/logo.jpg"
+          alt="Logo de Safin Corp"
+          class="h-[20%] sm:h-[25%] md:h-[20%] w-16 sm:w-24 md:w-24 object-contain"
+        />
+      </div>
+            
+  
+      <!-- Menú (versión escritorio) -->
+      <ul class="hidden md:flex space-x-6">
+        <li>
+          <a href="#" class="hover:text-blue-600">Inicio</a>
+        </li>
+        <li>
+          <a [routerLink]="'/seguros'" class="hover:text-blue-600">Seguros</a>
+        </li>
+        
+        <li>
+          <a (click)="scrollToSection('nuestras-aliansas')" class="hover:text-blue-600 cursor-pointer">Alianzas</a>
+        </li>
+                
+          <li>
+            <a [routerLink]="'/quienes-somos'" class="hover:text-blue-600 whitespace-nowrap">Quienes Somos</a>
+          </li>
+          <li>
+            <a [routerLink]="'/contacto'" class="hover:text-blue-600">Contacto</a>
+          </li>
+          <li>
+            <a [routerLink]="'/galeria'" class="hover:text-blue-600">Galeria</a>
+          </li>
+      </ul>
+  
+      <button
+  class="md:hidden focus:outline-none"
+  (click)="toggleMenu()"
+>
+  <svg
+    viewBox="0 0 24 24"
+    class="h-6 w-6 "
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Línea superior (naranja) -->
+    <path d="M4 5h16" stroke="#337AB7" stroke-width="4" />
+
+    <!-- Línea del medio (gris/negra) -->
+    <path d="M4 12h16" stroke="#337AB7" stroke-width="4" />
+
+    <!-- Línea inferior (naranja) -->
+    <path d="M4 19h16" stroke="#337AB7" stroke-width="4" />
+  </svg>
+</button>
+
+    </nav>
+  
+    <!-- Menú desplegable (versión móvil) -->
+    <!-- Usamos [class.hidden]="!isMenuOpen" para mostrar/ocultar el menú -->
+    <div
+      class="md:hidden bg-gray-50 border-t shadow"
+      [class.hidden]="!isMenuOpen"
+    >
+      <ul class="px-4 py-2 space-y-2">
+        <li>
+          <a href="#" class="block">Inicio</a>
+        </li>
+        <li>
+          <a href="#" class="block ">Servicios</a>
+        </li>
+        <li>
+          <a (click)="scrollToSection('nuestras-aliansas')" class="hover:text-blue-600 cursor-pointer">Alianzas</a>
+        </li>         
+        <li>
+          <a [routerLink]="'/quienes-somos'" class="hover:text-blue-600 whitespace-nowrap">Quienes Somos</a>
+        </li>
+        <li>
+          <a [routerLink]="'/contacto'" class="hover:text-blue-600">Contacto</a>
+        </li>
+        <li>
+          <a [routerLink]="'/galeria'" class="hover:text-blue-600">Galeria</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  

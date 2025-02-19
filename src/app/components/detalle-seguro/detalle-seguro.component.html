@@ -1,0 +1,30 @@
+<section class="max-w-screen-md mx-auto p-4 text-gray-800">
+    <!-- Contenedor relativo para posicionar título encima de la imagen -->
+    <!-- Aumentamos la altura a h-96 (24rem) -->
+    <div class="relative w-full h-96 mb-4">
+      <!-- Imagen que ocupa todo el contenedor -->
+      <img
+        [src]="dataSeguro?.foto_seguro"
+        [alt]="dataSeguro?.titulo_seguro"
+        class="absolute inset-0 w-full h-full object-cover rounded-md shadow"
+      />
+  
+      <!-- Título superpuesto en la parte superior y centrado horizontalmente -->
+      <h1
+        class="absolute top-4 left-1/2 transform -translate-x-1/2 text-white
+               text-2xl font-bold bg-black/50 px-4 py-1 rounded"
+      >
+        {{ dataSeguro?.titulo_seguro }}
+      </h1>
+    </div>
+  
+    <!-- Descripción principal -->
+    <div [innerHTML]="dataSeguro?.descripcion" class="text-gray-800"></div>
+
+    <section class="mt-8">
+      <app-contacto></app-contacto>
+    </section>
+
+       
+  </section>
+  

@@ -1,0 +1,44 @@
+<section class="container mx-auto px-4 py-8">
+    <!-- Encabezado principal -->
+    <header class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">
+        Seguros Empresas
+      </h1>
+      <p class="mt-2 text-center text-gray-500">
+        Protege tu negocio y tus activos con nuestras opciones de cobertura
+      </p>
+    </header>
+  
+    <!-- Grid para mostrar los seguros -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Itera sobre la lista de seguros (ejemplo en Angular) -->
+      <div
+        *ngFor="let seguro of listaSeguros"
+        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      >
+        <!-- Imagen del seguro -->
+        <img
+          [src]="seguro.foto_seguro"
+          alt="{{ seguro.titulo_seguro }}"
+          class="w-full h-48 object-cover"
+        />
+  
+        <!-- Contenido de la tarjeta -->
+        <div class="p-4">
+          <!-- Título del seguro -->
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">
+            {{ seguro.titulo_seguro }}
+          </h2>
+         
+          <!-- Botón de acción -->
+          <button
+            class="w-full bg-blue-600 text-white font-medium py-2 rounded hover:bg-blue-700 transition-colors"
+            (click)="goToSegurosDetail(seguro.slug)"
+          >
+            mas información
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
