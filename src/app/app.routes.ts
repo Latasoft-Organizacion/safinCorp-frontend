@@ -5,6 +5,7 @@ import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { ListaSegurosComponent } from './components/lista-seguros/lista-seguros.component';
 import { DetalleSeguroComponent } from './components/detalle-seguro/detalle-seguro.component';
+import { CondominiosComponent } from './pages/condominios/condominios.component';
 
 export const routes: Routes = [
     {
@@ -36,5 +37,9 @@ export const routes: Routes = [
     {
         path:'detalle-seguro/:slug',
         component:DetalleSeguroComponent
+    },
+    {
+        path:'condominios',
+        component:CondominiosComponent
     }
 ];

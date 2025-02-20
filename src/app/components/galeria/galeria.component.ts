@@ -42,7 +42,7 @@ export class GaleriaComponent {
     const swiperParams = {
       slidesPerView: 1,
       spaceBetween: 10,
-      loop: false, // ❌ Deshabilita el loop
+      loop: true, // ❌ Deshabilita el loop
       navigation: {
         el: '.swiper-button-next, .swiper-button-prev',
       },

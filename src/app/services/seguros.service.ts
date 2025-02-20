@@ -8,13 +8,7 @@ export class SegurosService {
   constructor() { }
 
   private seguros = [
-    {
-      titulo_seguro: 'Seguro de accidentes Personales',
-      slug: 'seguro-de-accidentes-personales',
-      foto_seguro: '',
-      descripcion: `descripcion seguro`,
-      caracteristicas_seguro: ``
-    },
+    
     {
       titulo_seguro: 'Seguro todo riego construcción',
       slug: 'seguro-todo-riego-construccion',
@@ -33,7 +27,7 @@ export class SegurosService {
       caracteristicas_seguro: ''
     },
     {
-      titulo_seguro: 'seguro responsabilidad civil',
+      titulo_seguro: 'Seguro responsabilidad civil',
       slug: 'seguro-responsabilidad-civil',
       foto_seguro: 'assets/img/seguros/responsabilidad-civil.webp',
       descripcion: `Con nuestro seguro de Responsabilidad Civil, te brindamos la
@@ -46,7 +40,7 @@ export class SegurosService {
       caracteristicas_seguro: ''
     },
     {
-      titulo_seguro: 'seguro para carga y transporte',
+      titulo_seguro: 'Seguro para carga y transporte',
       slug: 'seguro-para-carga-y-trasporte',
       foto_seguro: 'assets/img/seguros/seguro-terrestre.webp',
       descripcion: `
@@ -138,7 +132,7 @@ export class SegurosService {
     }
     ,
     {
-      titulo_seguro: 'seguro de garantia y fiel cumplimiento',
+      titulo_seguro: 'Seguro de garantia y fiel cumplimiento',
       slug: 'seguro-de-garantia-y-fiel-cumplimineto',
       foto_seguro: 'assets/img/seguros/seguro-garantia.webp',
       descripcion: `Esta póliza asegura el cumplimiento por parte del tomador de una

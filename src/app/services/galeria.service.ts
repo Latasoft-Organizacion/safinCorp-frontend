@@ -9,7 +9,7 @@ export class GaleriaService {
   constructor() { }
   private videos=[
     {
-      nombre:'Evento N°22 2024',
+      nombre:'Agacech 2024',
       descripcion:'entrevista a mariana alejandra letelier en Agacech ',
       link: 'https://www.youtube.com/embed/tDm2caLU44w?si=08no9IZdh_wEebHf',
       fotos:[
@@ -17,12 +17,15 @@ export class GaleriaService {
       ]
     },
     {
-      nombre:'Evento ',
-      descripcion:'entrevista a mariana alejandra letelier en Agacech ',
+      nombre:'Cigsa',
+      descripcion:'',
       link: '',
       fotos:[
-        'assets/condominos.webp',
-        'assets/condominos.webp'
+        'assets/img/fotos-eventos/agacech/cigsa1.webp',
+        'assets/img/fotos-eventos/agacech/cigsa2.webp',
+        'assets/img/fotos-eventos/agacech/cigsa3.webp',
+        'assets/img/fotos-eventos/agacech/cigsa4.webp',
+        'assets/img/fotos-eventos/agacech/cigsa5.webp',
         
       ]
     }
