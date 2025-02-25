@@ -1,0 +1,23 @@
+<main class="container mx-auto px-4 py-8">
+    <header class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Pago de Pólizas</h1>
+    </header>
+    <!-- Sección de instrucciones -->
+    <section class="max-w-2xl mx-auto text-gray-700 text-lg space-y-4 mb-12">
+      <p>
+        Para pagar pólizas al contado o con aviso de vencimiento, haz click en la compañía de seguros que corresponda e ingresa tus datos para proceder al pago.
+      </p>
+      <p>
+        Si su compañía no aparece para pago en línea, debe pagar mediante transferencia electrónica, depósito o directamente en la Cía. Favor contacte a su ejecutivo para obtener los datos para transferir.
+      </p>
+    </section>
+    <!-- Sección de logos de compañías -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <article *ngFor="let seguro of seguros" class="transition-transform duration-300 hover:scale-105">
+        <a [attr.href]="seguro.url" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white shadow rounded-lg hover:shadow-lg">
+          <img [src]="seguro.logoAliansas" alt="Logo de la compañía" class="mx-auto object-contain h-20 w-40 sm:h-24 sm:w-48 md:h-28 md:w-56 lg:h-32 lg:w-64">
+        </a>
+      </article>
+    </section>
+  </main>
+  

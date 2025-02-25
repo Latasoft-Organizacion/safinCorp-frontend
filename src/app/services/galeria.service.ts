@@ -24,9 +24,7 @@ export class GaleriaService {
         'assets/img/fotos-eventos/agacech/cigsa1.webp',
         'assets/img/fotos-eventos/agacech/cigsa2.webp',
         'assets/img/fotos-eventos/agacech/cigsa3.webp',
-        'assets/img/fotos-eventos/agacech/cigsa4.webp',
-        'assets/img/fotos-eventos/agacech/cigsa5.webp',
-        
+        'assets/img/fotos-eventos/agacech/cigsa4.webp',        
       ]
     }
 

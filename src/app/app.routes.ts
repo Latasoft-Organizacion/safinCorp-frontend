@@ -6,6 +6,9 @@ import { GaleriaComponent } from './components/galeria/galeria.component';
 import { ListaSegurosComponent } from './components/lista-seguros/lista-seguros.component';
 import { DetalleSeguroComponent } from './components/detalle-seguro/detalle-seguro.component';
 import { CondominiosComponent } from './pages/condominios/condominios.component';
+import { NuestrasAliansasComponent } from './components/nuestras-aliansas/nuestras-aliansas.component';
+import { PagarSeguroComponent } from './components/pagar-seguro/pagar-seguro.component';
+import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/denunciar-siniestro.component';
 
 export const routes: Routes = [
     {
@@ -41,5 +44,23 @@ export const routes: Routes = [
     {
         path:'condominios',
         component:CondominiosComponent
+    },
+    {
+        path:'nuestras-aliansas',
+        component:NuestrasAliansasComponent
+    },
+    {
+        path:'pagar-seguro',
+        component:PagarSeguroComponent
+
+    },
+    {
+        path:'denunciar-siniestro',
+        component:DenunciarSiniestroComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'inicio', // Redirige a la ruta 'inicio'
+        
     }
 ];

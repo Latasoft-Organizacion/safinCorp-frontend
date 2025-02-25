@@ -10,7 +10,7 @@
   </header>
 
   <!-- Grid para mostrar los seguros -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" [@listAnimation]>
     <!-- Itera sobre la lista de seguros -->
     <div
       *ngFor="let seguro of listaSeguros"

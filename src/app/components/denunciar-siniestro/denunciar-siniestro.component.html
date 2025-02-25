@@ -1,0 +1,77 @@
+<main class="container mx-auto px-4 py-8">
+    <!-- Encabezado con título centrado -->
+    <header class="mb-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold whitespace-nowrap">
+        Denunciar Siniestro
+      </h1>
+    </header>
+  
+    <!-- Sección principal con índice a la izquierda y artículos apilados a la derecha -->
+    <section class="flex flex-col md:flex-row gap-8 items-start">
+      <!-- Índice (Aside) -->
+      <aside class="w-full md:w-64 flex-none border rounded p-4">
+        <nav aria-label="Índice de Seguros">
+          <ol class="list-decimal list-inside space-y-2">
+            <li (click)="scrollSmooth('incendio')" class="cursor-pointer font-semibold">Incendio</li>
+            <li (click)="scrollSmooth('responsabilidad-civil')" class="cursor-pointer font-semibold">Responsabilidad Civil</li>
+            <li (click)="scrollSmooth('todo-riesgo-construccion')" class="cursor-pointer font-semibold">Todo riesgo construcción y montajes</li>
+          </ol>
+        </nav>
+      </aside>
+  
+      <!-- Contenedor para apilar artículos en columna -->
+      <div class="flex-1 flex flex-col gap-8">
+        <!-- Artículo 1 -->
+        <article id="incendio" class="border rounded p-4">
+          <header>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Incendio</h2>
+          </header>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+            <li>Dar aviso inmediato a la Compañía de Seguros.</li>
+            <li>Dejar denuncio en Carabineros dentro de las 24 horas siguientes de ocurrido un siniestro.</li>
+            <li>En caso de robo, aviso inmediato a Carabineros.</li>
+            <li>Luego de ocurrido el siniestro, tiene un plazo máximo de cinco días corridos para hacer la denuncia a la Compañía de Seguros.</li>
+            <li>Tomar todas las medidas y precauciones para no aumentar la magnitud de la pérdida o el daño.</li>
+            <li>Conservar los bienes dañados para ponerlos posteriormente a disposición de la compañía.</li>
+            <li>Obtener la mayor cantidad de registros fotográficos.</li>
+          </ul>
+        </article>
+  
+        <!-- Artículo 2 -->
+        <article id="responsabilidad-civil" class="border rounded p-4">
+          <header>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Responsabilidad Civil</h2>
+          </header>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+            <li>Dar aviso inmediato a la Compañía de Seguros.</li>
+            <li>
+              Dar aviso inmediato a Carabineros de la situación que afectó a un tercero:
+              <ul class="list-disc list-inside ml-6 space-y-2 mt-2">
+                <li>La muerte de terceras personas o las lesiones corporales causadas a las mismas.</li>
+                <li>Los daños causados a cosas pertenecientes a terceras personas (daños materiales).</li>
+                <li>Nunca llegar a acuerdos monetarios con el o los afectados, y no reconocer culpabilidad.</li>
+                <li>Solicitar la mayor cantidad de antecedentes de los terceros (nombres, Rut, datos de contacto, si cuentan con seguros, etc.).</li>
+                <li>La mayor cantidad de registros fotográficos.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+  
+        <!-- Artículo 3 -->
+        <article id="todo-riesgo-construccion" class="border rounded p-4">
+          <header>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Todo riesgo construcción y montajes</h2>
+          </header>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+            <li>Dar aviso inmediato a la Compañía de Seguros.</li>
+            <li>Confeccionar una declaración escrita de los hechos (día, hora aproximada, ubicación del siniestro, personas a cargo, etc.), que incluya todas las pruebas requeridas para respaldar.</li>
+            <li>Tomar todas las medidas y precauciones para no aumentar la magnitud de la pérdida o el daño.</li>
+            <li>Conservar los bienes dañados para ponerlos posteriormente a disposición de la compañía.</li>
+            <li>En caso de robo, informar de forma inmediata a Carabineros.</li>
+            <li>La mayor cantidad de registros fotográficos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+  

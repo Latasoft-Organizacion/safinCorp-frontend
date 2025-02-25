@@ -27,13 +27,13 @@ export class SlaiderComponent {
       buttonText: 'Ver más'
     },
     {
-      image: 'assets/imagen2.jpg',
+      image: 'assets/img/seguros/seguro-construccion.webp',
       title: 'Protege tu Comunidad',
       description: 'Obtén un plan de cobertura adaptado a tus necesidades.',
       buttonText: 'Contáctanos'
     },
     {
-      image: 'assets/imagen3.jpg',
+      image: 'assets/img/seguros/seguro-garantia.webp',
       title: 'Seguridad y Tranquilidad',
       description: 'Asegura el bienestar de los residentes con nuestras pólizas.',
       buttonText: 'Cotizar ahora'

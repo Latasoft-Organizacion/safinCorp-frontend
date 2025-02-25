@@ -22,7 +22,7 @@
         <div class="flex flex-col gap-2 sm:flex-row sm:gap-2">
   
           <!-- Botón 1 -->
-          <button
+          <button (click)="scrollToSection('seguros')"
             class="bg-[#5CB85C] text-white uppercase 
                    font-semibold rounded-md 
                    px-6 py-3 hover:bg-[#4cae4c] transition-colors"
@@ -31,7 +31,7 @@
           </button>
   
           <!-- Botón 2 -->
-          <button
+          <button [routerLink]="'/denunciar-siniestro'"
             class="bg-[#F0AD4E] text-white uppercase
                    font-semibold rounded-md
                    px-6 py-3 hover:bg-[#ec9c2d] transition-colors"
@@ -40,7 +40,7 @@
           </button>
   
           <!-- Botón 3 -->
-          <button
+          <button [routerLink]="'/pagar-seguro'"
             class="bg-[#337AB7] text-white uppercase
                    font-semibold rounded-md
                    px-6 py-3 hover:bg-[#286090] transition-colors"
@@ -77,13 +77,13 @@
       
     </section>
 
-    <section>
+    <section id="seguros">
       <app-lista-seguros></app-lista-seguros>
 
     </section>
 
-    <section id="nuestras-aliansas">
-      <app-nuestras-aliansas></app-nuestras-aliansas>
+    <section >
+      <app-nuestros-seguros></app-nuestros-seguros>
     </section>
   </main>
   

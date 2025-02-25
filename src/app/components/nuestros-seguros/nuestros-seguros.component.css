@@ -1,0 +1,45 @@
+@keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* Mueve la mitad del contenido para que no haya corte */
+  }
+  
+  .scrolling-wrapper {
+    display: flex;
+    width: max-content; /* Asegura que el contenido no se corte */
+    animation: infinite-scroll 40s linear infinite; /* Animación continua */
+  }
+  
+  .scroll-content {
+    display: flex;
+    gap: 6rem;
+  }
+  
+  /* Asegurar que las imágenes tengan el mismo tamaño */
+  .logo {
+    width: 160px; /* Tamaño fijo */
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 1024px) {
+    .logo {
+      width: 140px;
+      height: 70px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      width: 120px;
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      width: 100px;
+      height: 50px;
+    }
+  }
+  

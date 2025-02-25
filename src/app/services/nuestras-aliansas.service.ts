@@ -1,58 +1,29 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
+export interface Alianza {
+  
+  nombre: string;
+  logoUrl: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class NuestrasAliansasService {
+  constructor() {}
 
-  aliansas=[
-    {
-      logoAliansas: 'assets/img/aliansas/seguro-bci.webp',
-      url: 'https://www.bci.cl'
-    },
-    {
-      logoAliansas: 'assets/img/aliansas/seguro-chubb.webp',
-      url: 'https://www.chubb.com'
-    },
-    {
-      logoAliansas: 'assets/img/aliansas/seguro-consorcio.webp',
-      url: 'https://www.consorcio.cl'
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-fid.webp',
-      url:''
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-hdi.webp',
-      url:'https://www.hdi.cl'
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-mapfre.webp',
-      url:'https://www.mapfre.com'
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-reale.webp',
-      url:''
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-renta.webp',
-      url:''
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-southbridge.webp',
-      url:''
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro.sura.webp',
-      url:''
-    },
-    {
-      logoAliansas:'assets/img/aliansas/seguro-unnion.webp',
-      url:''
-    }
-  ]
 
-  getImagenAliansas(){
-    return this.aliansas;
+  getAlianzas(): Observable<Alianza[]> {
+    const alianzas: Alianza[] = [
+      {  nombre: 'Vivo en Condominio Consultores', logoUrl: 'assets/img/aliansas/vivoencondominio.webp'  },
+      {  nombre: 'Balloqui Ingenieria SPA', logoUrl: 'assets/img/aliansas/LOGO-BALLOQUI.webp'},
+      {  nombre: 'Estudio Juridico ARMIS', logoUrl: 'assets/img/aliansas/armis.webp' },
+      {  nombre: 'Asesoria en Prevención  de Riesgos APES', logoUrl: 'assets/img/aliansas/APES.webp' },
+      {  nombre: 'SV Qualitas Consultores', logoUrl: 'assets/img/aliansas/svCualitas.webp'},
+      {  nombre: 'Cap-Instalmet Constructores', logoUrl: 'assets/img/aliansas/cap-instment.webp' },
+      {  nombre: 'Prevención y Emergencias.cl', logoUrl: 'assets/img/aliansas/seguridad.webp' }
+    ];
+    return of(alianzas)
   }
 }
