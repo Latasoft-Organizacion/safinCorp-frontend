@@ -3,10 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Alianza, NuestrasAliansasService } from '../../services/nuestras-aliansas.service';
 import { RouterLink } from '@angular/router';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-interface Aliansas{
-  logoAliansas:string,
-  url:string
-}
+
 @Component({
   selector: 'app-nuestras-aliansas',
   standalone: true,
