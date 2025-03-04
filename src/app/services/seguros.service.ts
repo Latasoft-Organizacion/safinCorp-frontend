@@ -30,7 +30,8 @@ export class SegurosService {
       titulo_seguro: 'Seguro responsabilidad civil',
       slug: 'seguro-responsabilidad-civil',
       foto_seguro: 'assets/img/seguros/responsabilidad-civil.webp',
-      descripcion: `Incorporada al Depósito de Pólizas bajo el código POL120131531. Esta póliza te respalda económicamente al
+      descripcion: `<p>Incorporada al Depósito de Pólizas bajo el código POL120131531.</p> 
+                    Esta póliza te respalda económicamente al
                     asumir la indemnización por daños a terceros, ya sean personales
                     o materiales, por los cuales el asegurado es civilmente
                     responsable. Garantizando que tu patrimonio y tu reputación
@@ -133,7 +134,8 @@ export class SegurosService {
       titulo_seguro: 'Seguro de garantia y fiel cumplimiento',
       slug: 'seguro-de-garantia-y-fiel-cumplimineto',
       foto_seguro: 'assets/img/seguros/seguro-garantia.webp',
-      descripcion: `Incorporada al Depósito de Pólizas bajo el código POL12013171. Esta póliza asegura el cumplimiento por parte del tomador de una
+      descripcion: `<p>Incorporada al Depósito de Pólizas bajo el código POL12013171.</p>
+                   Esta póliza asegura el cumplimiento por parte del tomador de una
                     “obligación de hacer” manifestada en un contrato o una
                     disposición legal, obligando a pagar al asegurado, la suma o
                     monto determinado y los perjuicios que ocasionen dicho
