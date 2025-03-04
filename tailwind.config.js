@@ -3,7 +3,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // Puedes usar el nombre que desees para invocar la fuente
+        'bree': ['"Bree Serif"', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

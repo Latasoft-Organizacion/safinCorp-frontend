@@ -5,6 +5,15 @@
       <h1 class="text-5xl font-extrabold text-blue-700 drop-shadow-lg">Seguros para Condominios</h1>
       <p class="text-gray-600 text-lg mt-3 leading-relaxed">Protección integral para espacios comunes y privados.</p>
     </header>
+
+    <div class="flex justify-center">
+      <swiper-container #swiper class="mySwiper">
+        <swiper-slide *ngFor="let foto of fotos"> <!-- Cambié 'video.fotos' por 'fotos' -->
+          <img [src]="foto" alt="Foto del evento" class="w-full h-80 object-contain rounded-lg shadow-md">
+        </swiper-slide>
+      </swiper-container>
+    </div>
+    
   
     <!-- Descripción del seguro -->
     <article class="p-6">
@@ -129,45 +138,7 @@
     </section>
     
   
-    <!-- Cálculo del monto asegurado -->
-    <section class="p-8 mt-6">
-      <h2 class="text-3xl font-semibold text-blue-600">¿Cómo se determina el monto a asegurar de un edificio?</h2>
-      <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2 mt-4">
-        <li>🏢 Las compañías de Seguro consideran el certificado de la DOM.</li>
-        <li>💰 El <strong>60%</strong> del valor de reconstrucción corresponde a bienes y espacios comunes.</li>
-        <li>🏠 El <strong>40%</strong> restante corresponde a bienes de los copropietarios.</li>
-        <li>📉 Se debe considerar el <strong>valor de reconstrucción</strong> y no el comercial (actualmente UF 40/m²).</li>
-      </ul>
-
-      <details class="mt-6 bg-white p-4 rounded-lg shadow-md">
-        <summary class="cursor-pointer text-lg font-semibold text-blue-600 hover:text-blue-500 transition-all duration-300">
-          ⚠️ ¿Qué ocurre en caso de infraseguro?
-        </summary>
-        <p class="mt-2 text-gray-700 leading-relaxed">
-          Si la suma asegurada en la póliza es menor al valor real del condominio, la compensación en caso de siniestro será insuficiente para cubrir los daños. 
-          A veces, esto ocurre por error, pero en otros casos es una estrategia para reducir el costo de la prima. Sin embargo, el impacto puede ser negativo, 
-          ya que la indemnización resultará menor y podría no alcanzar para la reconstrucción total del condominio.
-        </p>
-      </details>
-
-      <details class="mt-6 bg-white p-4 rounded-lg shadow-md">
-        <summary class="cursor-pointer text-lg font-semibold text-blue-600 hover:text-blue-500 transition-all duration-300">
-          ⚠️ ¿Que cubre el infraseguro en caso de un siniestro?
-        </summary>
-        <p class="mt-2 text-gray-700 leading-relaxed">
-            Si se produce un siniestro, en caso de infraseguro en el seguro del Condominio , se
-            aplica la regla de proporcionalidad para calcular la indemnización que corresponde.
-            La consecuencia más directa es que se percibe una cantidad inferior que resulta de
-            multiplicar el capital asegurado por los daños sufridos y dividirlo entre el valor real.
-            
-            Aunque los daños hayan sido mayores, la compensación económica que se recibe es
-            la que resulta de dicha fórmula, es decir, una cantidad proporcional entre el capital
-            contratado y lo que el ajustado calcule en el siniestro.
-        </p>
-      </details>
-      
-    </section>
-  
+   
     <!-- Denuncia de siniestros -->
     <section class="p-8 mt-6 animate-fade-in">
         <h2 class="text-3xl font-semibold text-blue-600"> Denuncia de Siniestros</h2>
@@ -249,7 +220,11 @@
         
     </section>
     
-      
-      
+      <section>
+        <app-contacto></app-contacto>
+      </section>
+    
+    
+
   </section>
   

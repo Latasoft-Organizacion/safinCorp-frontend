@@ -1,0 +1,25 @@
+.mySwiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+.slide-item {
+    /* Partimos de opacidad 0 y un ligero zoom/reducción (o desplazamiento) */
+    opacity: 0;
+    transform: scale(0.9);
+    /* Transición para que al cambiar de clase, la animación sea suave */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  /* Cuando el slide está activo */
+  .slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Cuando el slide está inactivo (opcionalmente, podemos dejarlo igual a .slide-item) */
+  .slide-inactive {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  

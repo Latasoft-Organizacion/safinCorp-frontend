@@ -10,7 +10,7 @@ export class SegurosService {
   private seguros = [
     
     {
-      titulo_seguro: 'Seguro todo riego construcción',
+      titulo_seguro: 'Seguro Todo Riesgo Construcción',
       slug: 'seguro-todo-riego-construccion',
       foto_seguro: 'assets/img/seguros/seguro-construccion.webp',
       descripcion: `Esta póliza ofrece una protección sin precedentes para las
@@ -30,9 +30,7 @@ export class SegurosService {
       titulo_seguro: 'Seguro responsabilidad civil',
       slug: 'seguro-responsabilidad-civil',
       foto_seguro: 'assets/img/seguros/responsabilidad-civil.webp',
-      descripcion: `Con nuestro seguro de Responsabilidad Civil, te brindamos la
-                    tranquilidad de saber que estás protegiendo tu patrimonio ante
-                    cualquier imprevisto. Esta póliza te respalda económicamente al
+      descripcion: `Incorporada al Depósito de Pólizas bajo el código POL120131531. Esta póliza te respalda económicamente al
                     asumir la indemnización por daños a terceros, ya sean personales
                     o materiales, por los cuales el asegurado es civilmente
                     responsable. Garantizando que tu patrimonio y tu reputación
@@ -40,7 +38,7 @@ export class SegurosService {
       caracteristicas_seguro: ''
     },
     {
-      titulo_seguro: 'Seguro para carga y transporte',
+      titulo_seguro: 'Seguro para carga en trasporte terrestre',
       slug: 'seguro-para-carga-y-trasporte',
       foto_seguro: 'assets/img/seguros/seguro-terrestre.webp',
       descripcion: `
@@ -84,7 +82,7 @@ export class SegurosService {
       caracteristicas_seguro: ''
     }
     , {
-      titulo_seguro: 'Seguro de responsabilidad civil adminstrador y cliente',
+      titulo_seguro: 'Seguro de responsabilidad civil adminstrador y comite',
       slug: 'seguro-responsabilidad-civil-administrador-cliente',
       foto_seguro: 'assets/img/seguros/responsabilidad-administrador.webp',
       descripcion: `
@@ -135,7 +133,7 @@ export class SegurosService {
       titulo_seguro: 'Seguro de garantia y fiel cumplimiento',
       slug: 'seguro-de-garantia-y-fiel-cumplimineto',
       foto_seguro: 'assets/img/seguros/seguro-garantia.webp',
-      descripcion: `Esta póliza asegura el cumplimiento por parte del tomador de una
+      descripcion: `Incorporada al Depósito de Pólizas bajo el código POL12013171. Esta póliza asegura el cumplimiento por parte del tomador de una
                     “obligación de hacer” manifestada en un contrato o una
                     disposición legal, obligando a pagar al asegurado, la suma o
                     monto determinado y los perjuicios que ocasionen dicho
