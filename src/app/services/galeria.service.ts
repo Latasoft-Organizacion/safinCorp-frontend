@@ -42,7 +42,9 @@ export class GaleriaService {
         fotos:[
           'assets/img/fotos-eventos/capacitacion/certificado-paarticipacion.webp',
           'assets/img/fotos-eventos/capacitacion/certificado-sofofa.webp',                
-          'assets/img/fotos-eventos/capacitacion/certificado-cigsa.webp'                
+          'assets/img/fotos-eventos/capacitacion/certificado-cigsa.webp',
+          'assets/img/fotos-eventos/capacitacion/certificado-liquidor-siniestros.webp',
+          'assets/img/fotos-eventos/capacitacion/certificado-seguro-vida.webp'                
         ]
     },
     
