@@ -80,6 +80,16 @@ export class GaleriaService {
       'assets/img/fotos-eventos/ans/convencion-ans3.webp',
       'assets/img/fotos-eventos/ans/convencion-ans4.webp'        
     ]
+  },
+  {
+    nombre:'Evento N° 5 Agacech',
+    descripcion:'Quinta versión del evento de Agacech',
+    link: 'assets/img/fotos-eventos/agacech-5/video.mp4',
+    fotos:[
+      'assets/img/fotos-eventos/agacech-5/1.webp',
+      'assets/img/fotos-eventos/agacech-5/4.webp',
+      'assets/img/fotos-eventos/agacech-5/5.webp'
+    ]
   }
   
 
