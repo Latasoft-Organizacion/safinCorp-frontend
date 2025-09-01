@@ -17,6 +17,14 @@ export class GaleriaService {
       ]
     },
     {
+      nombre:'Agacech 2025',
+      descripcion:'',
+      link: 'assets/img/fotos-eventos/agacech_videos/agacech2025.mp4',
+      fotos:[
+        
+      ]
+    },
+    {
       nombre:'Agacech 2024',
       descripcion:'Entrevista a Maria Alejandra Letelier - Safincorp ',
       link: 'https://www.youtube.com/embed/tDm2caLU44w?si=08no9IZdh_wEebHf',
@@ -84,7 +92,7 @@ export class GaleriaService {
   {
     nombre:'Evento N° 5 Agacech',
     descripcion:'Quinta versión del evento de Agacech',
-    link: 'assets/img/fotos-eventos/agacech-5/video.mp4',
+    link: 'assets/img/fotos-eventos/agacech_videos/aniversario5.mp4',
     fotos:[
       'assets/img/fotos-eventos/agacech-5/1.webp',
       'assets/img/fotos-eventos/agacech-5/4.webp',
