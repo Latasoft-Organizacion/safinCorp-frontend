@@ -1,52 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface Resena {
-  id: number;
-  nombre: string;
-  calificacion: number;
-  comentario: string;
-  fecha: Date;
-}
+import { HttpClientModule } from '@angular/common/http';
+import { ResenasService, ResenaItem } from '../../services/resenas.service';
 
 @Component({
   selector: 'app-resena',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  providers: [ResenasService],
   templateUrl: './resena.component.html',
   styleUrl: './resena.component.css',
 })
-export class ResenaComponent {
-  resenas: Resena[] = [
-    {
-      id: 1,
-      nombre: 'Carla Mendoza',
-      calificacion: 5,
-      comentario: 'El proceso fue increíblemente rápido y el asesoramiento muy profesional. Resolvieron todas mis dudas.',
-      fecha: new Date('2024-10-15')
-    },
-    {
-      id: 2,
-      nombre: 'Roberto Jiménez',
-      calificacion: 5,
-      comentario: 'Excelente servicio, muy atentos y profesionales. Recomiendo totalmente Safincorp.',
-      fecha: new Date('2024-10-20')
-    },
-    {
-      id: 3,
-      nombre: 'María González',
-      calificacion: 4,
-      comentario: 'Buen servicio en general. El proceso fue claro y me mantuvieron informada en todo momento.',
-      fecha: new Date('2024-11-01')
-    }
-  ];
+export class ResenaComponent implements OnInit {
+  resenas: ResenaItem[] = [];
+  cargando: boolean = false;
+  error: string = '';
+  mensajeExito: string = '';
 
   // Formulario
   nombreUsuario: string = '';
   calificacionUsuario: number = 0;
   comentarioUsuario: string = '';
   calificacionHover: number = 0;
+  enviando: boolean = false;
+
+  constructor(private resenasService: ResenasService) { }
+
+  ngOnInit(): void {
+    this.cargarResenas();
+  }
+
+  /**
+   * Cargar reseñas desde el backend
+   */
+  cargarResenas(): void {
+    this.cargando = true;
+    this.error = '';
+
+    this.resenasService.getResenas().subscribe({
+      next: (response) => {
+        if (response.success && response.data) {
+          this.resenas = response.data;
+        }
+        this.cargando = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar reseñas:', err);
+        this.error = 'Error al cargar las reseñas. Por favor, intenta de nuevo.';
+        this.cargando = false;
+      }
+    });
+  }
 
   getStars(count: number): number[] {
     return Array(count).fill(0);
@@ -64,26 +69,48 @@ export class ResenaComponent {
     this.calificacionHover = 0;
   }
 
+  /**
+   * Enviar una nueva reseña al backend
+   */
   enviarResena(): void {
     if (this.nombreUsuario.trim() && this.comentarioUsuario.trim() && this.calificacionUsuario > 0) {
-      const nuevaResena: Resena = {
-        id: this.resenas.length + 1,
-        nombre: this.nombreUsuario,
+      this.enviando = true;
+      this.error = '';
+      this.mensajeExito = '';
+
+      const nuevaResena: ResenaItem = {
+        nombre: this.nombreUsuario.trim(),
         calificacion: this.calificacionUsuario,
-        comentario: this.comentarioUsuario,
-        fecha: new Date()
+        comentario: this.comentarioUsuario.trim()
       };
 
-      this.resenas.unshift(nuevaResena); // Agregar al inicio
+      this.resenasService.createResena(nuevaResena).subscribe({
+        next: (response) => {
+          if (response.success) {
+            this.mensajeExito = 'Gracias por tu reseña. Será publicada después de ser revisada.';
+            
+            // Limpiar formulario
+            this.nombreUsuario = '';
+            this.calificacionUsuario = 0;
+            this.comentarioUsuario = '';
+            this.calificacionHover = 0;
 
-      // Limpiar formulario
-      this.nombreUsuario = '';
-      this.calificacionUsuario = 0;
-      this.comentarioUsuario = '';
-      this.calificacionHover = 0;
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+              this.mensajeExito = '';
+            }, 5000);
 
-      // Scroll hacia arriba para ver la nueva reseña
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Recargar reseñas para mostrar la nueva (si fue auto-aprobada)
+            this.cargarResenas();
+          }
+          this.enviando = false;
+        },
+        error: (err) => {
+          console.error('Error al enviar reseña:', err);
+          this.error = err.error?.message || 'Error al enviar la reseña. Por favor, intenta de nuevo.';
+          this.enviando = false;
+        }
+      });
     }
   }
 

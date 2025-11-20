@@ -6,8 +6,22 @@
       <p>Queremos saber cómo fue tu experiencia con Safincorp. Deja un comentario contándonos cómo fue trabajar con nosotros.</p>
     </div>
 
+    <!-- Estado de carga -->
+    <div *ngIf="cargando" class="loading-message">
+      <p>Cargando reseñas...</p>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div *ngIf="error && !cargando" class="error-message">
+      <p>{{ error }}</p>
+    </div>
+
     <!-- Lista de reseñas existentes -->
-    <div class="resenas-list">
+    <div class="resenas-list" *ngIf="!cargando">
+      <div *ngIf="resenas.length === 0 && !error" class="no-resenas">
+        <p>Aún no hay reseñas. ¡Sé el primero en dejar una!</p>
+      </div>
+      
       <div class="resena-card" *ngFor="let resena of resenas">
         <div class="resena-header">
           <div class="resena-info">
@@ -68,12 +82,21 @@
         ></textarea>
       </div>
 
+      <!-- Mensajes de éxito y error -->
+      <div *ngIf="mensajeExito" class="success-message">
+        {{ mensajeExito }}
+      </div>
+
+      <div *ngIf="error && !cargando" class="error-message-form">
+        {{ error }}
+      </div>
+
       <button 
         class="btn-enviar" 
         (click)="enviarResena()"
-        [disabled]="!nombreUsuario.trim() || !comentarioUsuario.trim() || calificacionUsuario === 0"
+        [disabled]="!nombreUsuario.trim() || !comentarioUsuario.trim() || calificacionUsuario === 0 || enviando"
       >
-        Enviar
+        {{ enviando ? 'Enviando...' : 'Enviar' }}
       </button>
     </div>
   </div>
