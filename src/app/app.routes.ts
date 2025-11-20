@@ -9,7 +9,7 @@ import { CondominiosComponent } from './pages/condominios/condominios.component'
 import { NuestrasAliansasComponent } from './components/nuestras-aliansas/nuestras-aliansas.component';
 import { PagarSeguroComponent } from './components/pagar-seguro/pagar-seguro.component';
 import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/denunciar-siniestro.component';
-import { ResenasComponent } from './components/resenas/resenas.component';
+import { ResenaComponent } from './components/resenas/resena.component';
 
 export const routes: Routes = [
     {
@@ -61,7 +61,7 @@ export const routes: Routes = [
     },
     {
         path:'resenas',
-        component:ResenasComponent
+        component:ResenaComponent
     },
     {
         path: '**',
