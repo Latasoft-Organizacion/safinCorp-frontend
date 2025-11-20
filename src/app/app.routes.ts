@@ -9,6 +9,7 @@ import { CondominiosComponent } from './pages/condominios/condominios.component'
 import { NuestrasAliansasComponent } from './components/nuestras-aliansas/nuestras-aliansas.component';
 import { PagarSeguroComponent } from './components/pagar-seguro/pagar-seguro.component';
 import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/denunciar-siniestro.component';
+import { ResenasComponent } from './components/resenas/resenas.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +58,10 @@ export const routes: Routes = [
     {
         path:'denunciar-siniestro',
         component:DenunciarSiniestroComponent
+    },
+    {
+        path:'resenas',
+        component:ResenasComponent
     },
     {
         path: '**',
