@@ -100,7 +100,8 @@ export class ResenaComponent implements OnInit {
               this.mensajeExito = '';
             }, 5000);
 
-            // Recargar reseñas para mostrar la nueva (si fue auto-aprobada)
+            // Limpiar caché y recargar reseñas para mostrar la nueva (si fue auto-aprobada)
+            this.resenasService.clearCache();
             this.cargarResenas();
           }
           this.enviando = false;
