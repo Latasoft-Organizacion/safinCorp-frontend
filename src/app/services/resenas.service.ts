@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { tap, shareReplay } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 export interface ResenaItem {
@@ -23,14 +24,27 @@ export interface ResenaResponse {
 })
 export class ResenasService {
   private apiUrl = `${environment.apiUrl}/resenas`;
+  private resenasCache$: Observable<ResenaResponse> | null = null;
 
   constructor(private http: HttpClient) { }
 
   /**
-   * Obtener todas las reseñas aprobadas
+   * Obtener todas las reseñas aprobadas (con caché)
    */
   getResenas(): Observable<ResenaResponse> {
-    return this.http.get<ResenaResponse>(this.apiUrl);
+    if (!this.resenasCache$) {
+      this.resenasCache$ = this.http.get<ResenaResponse>(this.apiUrl).pipe(
+        shareReplay(1) // Cachea el resultado y lo comparte entre subscriptores
+      );
+    }
+    return this.resenasCache$;
+  }
+
+  /**
+   * Limpiar caché de reseñas (útil después de crear una nueva)
+   */
+  clearCache(): void {
+    this.resenasCache$ = null;
   }
 
   /**
