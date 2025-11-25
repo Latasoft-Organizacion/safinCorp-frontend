@@ -36,3 +36,13 @@ img[class*="cursor-pointer"] {
 img[class*="cursor-pointer"]:hover {
   transform: scale(1.02);
 }
+
+/* Reducir espacio entre contenido y paginación del swiper */
+swiper-container.swiper-gallery::part(pagination) {
+  bottom: 10px;
+  margin-top: 0;
+}
+
+swiper-container.swiper-gallery {
+  padding-bottom: 40px;
+}
