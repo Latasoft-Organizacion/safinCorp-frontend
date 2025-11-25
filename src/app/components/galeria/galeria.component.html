@@ -30,10 +30,10 @@
         
         <!-- Iterar sobre cada item de la categoría -->
         <swiper-slide *ngFor="let item of categoria.items">
-          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 min-h-[500px]">
             <!-- Título del item (siempre mostrar si hay 1 item, o si hay más de 1) -->
             <h3 class="text-center text-2xl font-bold text-gray-900 mb-2">{{ categoria.items.length === 1 ? categoria.nombre : item.nombre }}</h3>
-            <p class="text-gray-700 text-center text-lg mb-4" *ngIf="item.descripcion">{{ item.descripcion }}</p>
+            <p class="text-gray-700 text-center text-lg mb-6" *ngIf="item.descripcion">{{ item.descripcion }}</p>
 
             <!-- Video MP4 local -->
             <div *ngIf="item.link && item.link.endsWith('.mp4')" class="flex justify-center">
