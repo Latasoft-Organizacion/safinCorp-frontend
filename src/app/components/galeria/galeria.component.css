@@ -1,0 +1,38 @@
+/* Animación para el modal */
+.modal-backdrop {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación para la imagen */
+.modal-image {
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mejorar el cursor en imágenes clickeables */
+img[class*="cursor-pointer"] {
+  transition: all 0.3s ease;
+}
+
+img[class*="cursor-pointer"]:hover {
+  transform: scale(1.02);
+}

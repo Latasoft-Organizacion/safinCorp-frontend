@@ -1,70 +1,86 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { GaleriaService } from '../../services/galeria.service';
 import { CommonModule } from '@angular/common';
 import { SafeUrlPipe } from '../../shared/safe-url.pipe';
 import { register } from 'swiper/element/bundle';
+import { GaleriaCategoria } from '../../models/galeria';
 
 // Registra los elementos personalizados de Swiper
 register();
 
-interface Video{
-  nombre:string;
-  descripcion:string;
-  link?:string;
-  fotos?:string[]
-}
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [CommonModule,SafeUrlPipe],
+  imports: [CommonModule, SafeUrlPipe],
   templateUrl: './galeria.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   styleUrl: './galeria.component.css'
 })
-export class GaleriaComponent {
-  @ViewChild('swiper') swiper!: ElementRef;
-  swiperInstance: any;
+export class GaleriaComponent implements AfterViewInit, OnDestroy {
+  categorias: GaleriaCategoria[] = [];
+  cargando: boolean = true;
   
-  videos:Video[]=[];
+  // Modal/Lightbox
+  imagenExpandida: string | null = null;
+  tituloImagenExpandida: string = '';
+  
   constructor(private galeriaService: GaleriaService) {}
 
   ngOnInit(): void {
-    this.loadVideos();
+    this.cargarGaleria();
+    this.setupKeyboardListener();
   }
 
-  loadVideos(): void {
-    this.galeriaService.getVideos().subscribe((data: any[]) => {
-      this.videos = data;
+  cargarGaleria(): void {
+    this.galeriaService.getGaleriaPorCategorias().subscribe({
+      next: (categorias) => {
+        this.categorias = categorias;
+        this.cargando = false;
+      },
+      error: (error) => {
+        console.error('Error al cargar galería:', error);
+        this.cargando = false;
+      }
     });
   }
 
-  ngAfterViewInit() {
-    const swiperParams = {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      loop: true, // ❌ Deshabilita el loop
-      navigation: {
-        el: '.swiper-button-next, .swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      speed: 500, // Velocidad de transición
-    };
+  /**
+   * Configura el listener de teclado para cerrar modal con ESC
+   */
+  setupKeyboardListener(): void {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && this.imagenExpandida) {
+        this.cerrarModal();
+      }
+    });
+  }
 
-    // Asigna configuración e inicializa Swiper
-    if (this.swiper) {
-      Object.assign(this.swiper.nativeElement, swiperParams);
-      this.swiper.nativeElement.initialize();
-      this.swiperInstance = this.swiper.nativeElement.swiper;
-    }
+  /**
+   * Abre el modal con la imagen expandida
+   */
+  expandirImagen(imagenUrl: string, titulo: string): void {
+    this.imagenExpandida = imagenUrl;
+    this.tituloImagenExpandida = titulo;
+    // Prevenir scroll del body cuando el modal está abierto
+    document.body.style.overflow = 'hidden';
+  }
+
+  /**
+   * Cierra el modal de imagen expandida
+   */
+  cerrarModal(): void {
+    this.imagenExpandida = null;
+    this.tituloImagenExpandida = '';
+    // Restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  }
+
+  ngAfterViewInit() {
+    // Swiper se inicializa automáticamente con los elementos swiper-container
   }
 
   ngOnDestroy() {
-    // Destruir la instancia para evitar fugas de memoria
-    if (this.swiperInstance) {
-      this.swiperInstance.destroy();
-    }
+    // Limpieza si es necesaria
+    this.cerrarModal();
   }
 }

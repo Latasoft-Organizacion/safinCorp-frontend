@@ -10,6 +10,7 @@ import { NuestrasAliansasComponent } from './components/nuestras-aliansas/nuestr
 import { PagarSeguroComponent } from './components/pagar-seguro/pagar-seguro.component';
 import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/denunciar-siniestro.component';
 import { ResenaComponent } from './components/resenas/resena.component';
+import { CharlasComponent } from './components/charlas/charlas.component';
 
 export const routes: Routes = [
     {
@@ -62,6 +63,10 @@ export const routes: Routes = [
     {
         path:'resenas',
         component:ResenaComponent
+    },
+    {
+        path:'charlas',
+        component:CharlasComponent
     },
     {
         path: '**',

@@ -22,7 +22,8 @@ export class NuestrasAliansasService {
       {  nombre: 'Asesoria en Prevención  de Riesgos APES', logoUrl: 'assets/img/aliansas/APES.webp' },
       {  nombre: 'SV Qualitas Consultores', logoUrl: 'assets/img/aliansas/svCualitas.webp'},
       {  nombre: 'Cap-Instalmet Constructores', logoUrl: 'assets/img/aliansas/cap-instment.webp' },
-      {  nombre: 'Prevención y Emergencias.cl', logoUrl: 'assets/img/aliansas/seguridad.webp' }
+      {  nombre: 'Prevención y Emergencias.cl', logoUrl: 'assets/img/aliansas/seguridad.webp' },
+      {  nombre: 'Asociación Gremial de Administradores de condominios y edificios de Chile', logoUrl: 'assets/img/aliansas/LOGO-AGACECH-color.png' }
     ];
     return of(alianzas)
   }
