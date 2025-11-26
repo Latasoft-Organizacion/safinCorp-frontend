@@ -61,6 +61,14 @@ export class GaleriaService {
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios (5).webp',
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios (6).webp',
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios (7).webp',
+      ],
+      categoria: 'eventos'
+    },
+        {
+      nombre: 'Expo Condominios 2025 - Fotos',
+      descripcion: '',
+      link: '',
+      fotos: [
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios-_8_.webp',
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios-_9_.webp',
         'assets/img/fotos-eventos/expo-condominios2025/expocondominios-_10_.webp',
