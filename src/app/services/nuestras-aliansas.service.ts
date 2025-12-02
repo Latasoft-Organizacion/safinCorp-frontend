@@ -17,12 +17,14 @@ export class NuestrasAliansasService {
   getAlianzas(): Observable<Alianza[]> {
     const alianzas: Alianza[] = [
       {  nombre: 'Vivo en Condominio Consultores', logoUrl: 'assets/img/aliansas/vivoencondominio.webp'  },
-      {  nombre: 'Balloqui Ingenieria SPA', logoUrl: 'assets/img/aliansas/LOGO-BALLOQUI.webp'},
+      {  nombre: 'Balloqui Ingenieria SPA', logoUrl: 'assets/img/aliansas/balloqui.webp'},
       {  nombre: 'Asesoria en Prevención  de Riesgos APES', logoUrl: 'assets/img/aliansas/APES.webp' },
-      {  nombre: 'SV Qualitas Consultores', logoUrl: 'assets/img/aliansas/svCualitas.webp'},
+      {  nombre: 'SV Qualitas Consultores', logoUrl: 'assets/img/aliansas/cualitas.webp'},
       {  nombre: 'Cap-Instalmet Constructores', logoUrl: 'assets/img/aliansas/cap-instment.webp' },
       {  nombre: 'Prevención y Emergencias.cl', logoUrl: 'assets/img/aliansas/seguridad.webp' },
-      {  nombre: 'Asociación Gremial de Administradores de condominios y edificios de Chile', logoUrl: 'assets/img/aliansas/LOGO-AGACECH-color.png' }
+      {  nombre: 'Asociación Gremial de Administradores de condominios y edificios de Chile', logoUrl: 'assets/img/aliansas/agacech.png' },
+      {  nombre: 'Procuradora Universidad Santiago de Chile', logoUrl: 'assets/img/aliansas/seguroschile.png' },
+      {  nombre: 'Coordinadora administrativa en EST "Gotschlich&Bouffanais', logoUrl: 'assets/img/aliansas/gotschlich.png' }   
     ];
     return of(alianzas)
   }
