@@ -24,7 +24,7 @@ export class NuestrasAliansasService {
       {  nombre: 'Prevención y Emergencias.cl', logoUrl: 'assets/img/aliansas/seguridad.webp' },
       {  nombre: 'Asociación Gremial de Administradores de condominios y edificios de Chile', logoUrl: 'assets/img/aliansas/agacech.png' },
       {  nombre: 'Procuradora Universidad Santiago de Chile', logoUrl: 'assets/img/aliansas/seguroschile.png' },
-      {  nombre: 'Coordinadora administrativa en EST "Gotschlich&Bouffanais', logoUrl: 'assets/img/aliansas/gotschlich.png' }   
+      {  nombre: 'Coordinadora administrativa en EST Gotschlich&Bouffanais', logoUrl: 'assets/img/aliansas/gotschlich.png' }   
     ];
     return of(alianzas)
   }
