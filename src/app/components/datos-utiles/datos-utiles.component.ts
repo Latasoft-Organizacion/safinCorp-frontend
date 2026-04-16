@@ -1,18 +1,6 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  OnInit,
-  OnDestroy,
-  AfterViewInit,
-  ViewChild,
-  ElementRef,
-  NgZone
-} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { register } from 'swiper/element/bundle';
 import { SafeUrlPipe } from '../../shared/safe-url.pipe';
-
-register();
 
 interface DatosUtilesDocumento {
   nombre: string;
@@ -23,7 +11,6 @@ interface DatosUtilesDocumento {
 interface DatosUtilesCategoria {
   id: string;
   nombre: string;
-  icono: string;
   documentos: DatosUtilesDocumento[];
 }
 
@@ -36,12 +23,9 @@ interface DocumentoConCategoria extends DatosUtilesDocumento {
   standalone: true,
   imports: [CommonModule, SafeUrlPipe],
   templateUrl: './datos-utiles.component.html',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   styleUrl: './datos-utiles.component.css'
 })
-export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('swiperContainer') swiperContainer!: ElementRef;
-
+export class DatosUtilesComponent implements OnInit, OnDestroy {
   categorias: DatosUtilesCategoria[] = [];
   todosLosDocumentos: DocumentoConCategoria[] = [];
   categoriaActiva: string = 'seguros';
@@ -50,20 +34,11 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
   tituloImagenExpandida: string = '';
   currentIndex: number = 0;
   private keyboardListener: ((event: KeyboardEvent) => void) | null = null;
-  private swiper: any = null;
-
-  // ✅ Guardamos referencia al listener para poder removerlo en ngOnDestroy
-  private slideChangeListener: (() => void) | null = null;
-
-  constructor(private ngZone: NgZone) {}
+  private autoplayInterval: any = null;
 
   ngOnInit(): void {
     this.cargarDatos();
     this.setupKeyboardListener();
-  }
-
-  ngAfterViewInit(): void {
-    this.setupSwiperListeners();
   }
 
   cargarDatos(): void {
@@ -71,7 +46,6 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         id: 'seguros',
         nombre: 'Seguros',
-        icono: '',
         documentos: [
           {
             nombre: 'Asegura tu Póliza',
@@ -93,7 +67,6 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         id: 'siniestros',
         nombre: 'Siniestros',
-        icono: '',
         documentos: [
           {
             nombre: 'Plazo de Denuncia de Siniestro',
@@ -110,7 +83,6 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         id: 'prevencion',
         nombre: 'Prevención',
-        icono: '',
         documentos: [
           {
             nombre: 'Prevención en Condominios',
@@ -127,7 +99,6 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         id: 'otros',
         nombre: 'Otros',
-        icono: '',
         documentos: [
           {
             nombre: 'Día de la Mujer',
@@ -158,48 +129,39 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   cambiarCategoria(categoriaId: string): void {
     this.categoriaActiva = categoriaId;
-
     const indexPrimerDocumento = this.todosLosDocumentos.findIndex(
       doc => doc.categoriaId === categoriaId
     );
-
-    if (indexPrimerDocumento !== -1 && this.swiper) {
-      // slideToLoop respeta los slides clonados del bucle
-      this.swiper.slideToLoop(indexPrimerDocumento);
+    if (indexPrimerDocumento !== -1) {
+      this.irASlide(indexPrimerDocumento);
     }
   }
 
-  private setupSwiperListeners(): void {
-    setTimeout(() => {
-      if (!this.swiperContainer) return;
+  irASlide(index: number): void {
+    const totalSlides = this.todosLosDocumentos.length;
+    this.currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+    this.actualizarCategoriaActiva();
+  }
 
-      const swiperEl = this.swiperContainer.nativeElement;
-      this.swiper = swiperEl.swiper;
+  siguienteSlide(): void {
+    this.irASlide(this.currentIndex + 1);
+  }
 
-      if (!this.swiper) return;
+  slideAnterior(): void {
+    this.irASlide(this.currentIndex - 1);
+  }
 
-      const updateActiveCategory = () => {
-        // ✅ Ejecutar dentro de NgZone para que Angular detecte los cambios
-        this.ngZone.run(() => {
-          // realIndex apunta al índice real ignorando los clones del loop
-          const realIndex = this.swiper.realIndex;
-          const totalSlides = this.todosLosDocumentos.length;
+  irAlPagina(index: number): void {
+    this.irASlide(index);
+  }
 
-          if (realIndex >= 0 && realIndex < totalSlides) {
-            this.currentIndex = realIndex;
-            this.categoriaActiva = this.todosLosDocumentos[realIndex].categoriaId;
-          }
-        });
-      };
+  obtenerDocumentoActual(): DocumentoConCategoria {
+    return this.todosLosDocumentos[this.currentIndex];
+  }
 
-      // ✅ El nombre correcto del evento para Swiper Element (web component) es
-      //    'swiperslidechange' — todo en minúsculas, sin guión, con prefijo 'swiper'
-      this.slideChangeListener = updateActiveCategory;
-      swiperEl.addEventListener('swiperslidechange', this.slideChangeListener);
-
-      // Inicializar estado al montar
-      updateActiveCategory();
-    }, 50);
+  private actualizarCategoriaActiva(): void {
+    const documentoActual = this.obtenerDocumentoActual();
+    this.categoriaActiva = documentoActual.categoriaId;
   }
 
   expandirImagen(imagen: string, titulo: string): void {
@@ -227,13 +189,8 @@ export class DatosUtilesComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.keyboardListener) {
       window.removeEventListener('keydown', this.keyboardListener);
     }
-
-    // ✅ Limpiar el listener de Swiper al destruir el componente
-    if (this.swiperContainer && this.slideChangeListener) {
-      this.swiperContainer.nativeElement.removeEventListener(
-        'swiperslidechange',
-        this.slideChangeListener
-      );
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
     }
   }
 }

@@ -1,20 +1,16 @@
 <section class="py-12 bg-gray-100 min-h-screen">
   <div class="max-w-6xl mx-auto px-4">
-    <!-- Encabezado -->
     <header class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-2">Datos Útiles</h1>
       <p class="text-gray-600 text-lg">Información importante y documentos de tu interés</p>
       <div class="w-24 h-1 bg-blue-600 mx-auto rounded mt-4"></div>
     </header>
 
-    <!-- Estado de carga -->
     <div *ngIf="cargando" class="text-center py-12">
       <p class="text-gray-600 text-lg">Cargando contenido...</p>
     </div>
 
-    <!-- Contenido principal -->
     <div *ngIf="!cargando" class="bg-white rounded-lg shadow-lg overflow-hidden">
-      <!-- Tabs/Categorías -->
       <div class="flex flex-wrap border-b bg-gray-50">
         <button
           *ngFor="let categoria of categorias"
@@ -29,43 +25,51 @@
         </button>
       </div>
 
-      <!-- Carrusel Swiper global -->
       <div class="p-8" *ngIf="!cargando">
-        <swiper-container
-          #swiperContainer
-          class="rounded-lg"
-          navigation="true"
-          pagination="true"
-          pagination-clickable="true"
-          pagination-type="bullets"
-          slides-per-view="1"
-          space-between="20"
-          loop="true"
-        >
-          <swiper-slide *ngFor="let documento of todosLosDocumentos">
-            <div class="flex flex-col h-full">
-              <!-- Información ARRIBA -->
-              <div class="text-center mb-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ documento.nombre }}</h3>
-                <p class="text-gray-600 text-lg">{{ documento.descripcion }}</p>
-              </div>
+        <div class="flex flex-col">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ obtenerDocumentoActual().nombre }}</h3>
+            <p class="text-gray-600 text-lg">{{ obtenerDocumentoActual().descripcion }}</p>
+          </div>
 
-              <!-- Imagen -->
-              <div class="flex justify-center bg-gray-200 rounded-lg overflow-hidden h-96">
-                <img
-                  [src]="documento.imagen"
-                  [alt]="documento.nombre"
-                  (click)="expandirImagen(documento.imagen, documento.nombre)"
-                  class="w-full h-full object-contain hover:opacity-90 transition-opacity duration-300 cursor-pointer"
-                />
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper-container>
+          <div class="relative bg-gray-200 rounded-lg overflow-hidden h-96 mb-8 flex items-center justify-center">
+            <img
+              [src]="obtenerDocumentoActual().imagen"
+              [alt]="obtenerDocumentoActual().nombre"
+              (click)="expandirImagen(obtenerDocumentoActual().imagen, obtenerDocumentoActual().nombre)"
+              class="w-full h-full object-contain hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+            />
+
+            <button
+              (click)="slideAnterior()"
+              class="carousel-button carousel-button-prev"
+              aria-label="Slide anterior"
+            >
+              ❮
+            </button>
+
+            <button
+              (click)="siguienteSlide()"
+              class="carousel-button carousel-button-next"
+              aria-label="Siguiente slide"
+            >
+              ❯
+            </button>
+          </div>
+
+          <div class="flex gap-2 justify-center mb-8">
+            <button
+              *ngFor="let i of [].constructor(todosLosDocumentos.length); let idx = index"
+              (click)="irAlPagina(idx)"
+              [class.bg-blue-600]="idx === currentIndex"
+              [class.bg-blue-300]="idx !== currentIndex"
+              class="w-3 h-3 rounded-full transition-all duration-200 hover:scale-110"
+            ></button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Modal para expandir imagen -->
     <div
       *ngIf="imagenExpandida"
       class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
