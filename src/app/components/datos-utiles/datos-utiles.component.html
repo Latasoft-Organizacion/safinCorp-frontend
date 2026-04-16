@@ -1,0 +1,95 @@
+<section class="py-12 bg-gray-100 min-h-screen">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Encabezado -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-2">Datos Útiles</h1>
+      <p class="text-gray-600 text-lg">Información importante y documentos de tu interés</p>
+      <div class="w-24 h-1 bg-blue-600 mx-auto rounded mt-4"></div>
+    </header>
+
+    <!-- Estado de carga -->
+    <div *ngIf="cargando" class="text-center py-12">
+      <p class="text-gray-600 text-lg">Cargando contenido...</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div *ngIf="!cargando" class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <!-- Tabs/Categorías -->
+      <div class="flex flex-wrap border-b bg-gray-50">
+        <button
+          *ngFor="let categoria of categorias"
+          (click)="cambiarCategoria(categoria.id)"
+          [class.border-b-4]="categoriaActiva === categoria.id"
+          [class.border-blue-600]="categoriaActiva === categoria.id"
+          [class.text-blue-600]="categoriaActiva === categoria.id"
+          [class.bg-white]="categoriaActiva === categoria.id"
+          class="flex-1 py-4 px-6 text-center font-semibold transition-all duration-200 hover:bg-gray-100 text-gray-700"
+        >
+          {{ categoria.nombre }}
+        </button>
+      </div>
+
+      <!-- Carrusel Swiper global -->
+      <div class="p-8" *ngIf="!cargando">
+        <swiper-container
+          #swiperContainer
+          class="rounded-lg"
+          navigation="true"
+          pagination="true"
+          pagination-clickable="true"
+          pagination-type="bullets"
+          slides-per-view="1"
+          space-between="20"
+          loop="true"
+        >
+          <swiper-slide *ngFor="let documento of todosLosDocumentos">
+            <div class="flex flex-col h-full">
+              <!-- Información ARRIBA -->
+              <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ documento.nombre }}</h3>
+                <p class="text-gray-600 text-lg">{{ documento.descripcion }}</p>
+              </div>
+
+              <!-- Imagen -->
+              <div class="flex justify-center bg-gray-200 rounded-lg overflow-hidden h-96">
+                <img
+                  [src]="documento.imagen"
+                  [alt]="documento.nombre"
+                  (click)="expandirImagen(documento.imagen, documento.nombre)"
+                  class="w-full h-full object-contain hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+                />
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+
+    <!-- Modal para expandir imagen -->
+    <div
+      *ngIf="imagenExpandida"
+      class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+      (click)="cerrarImagen()"
+    >
+      <div
+        class="relative max-w-5xl max-h-[90vh] flex flex-col"
+        (click)="$event.stopPropagation()"
+      >
+        <button
+          (click)="cerrarImagen()"
+          class="absolute -top-10 right-0 text-white hover:text-gray-300 text-4xl font-bold transition-colors"
+        >
+          ✕
+        </button>
+        <img
+          [src]="imagenExpandida"
+          [alt]="tituloImagenExpandida"
+          class="max-w-full max-h-[80vh] object-contain rounded-lg"
+        />
+        <p class="text-white text-center mt-4 text-lg font-semibold">
+          {{ tituloImagenExpandida }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

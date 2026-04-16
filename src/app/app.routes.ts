@@ -11,6 +11,7 @@ import { PagarSeguroComponent } from './components/pagar-seguro/pagar-seguro.com
 import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/denunciar-siniestro.component';
 import { ResenaComponent } from './components/resenas/resena.component';
 import { CharlasComponent } from './components/charlas/charlas.component';
+import { DatosUtilesComponent } from './components/datos-utiles/datos-utiles.component';
 
 export const routes: Routes = [
     {
@@ -67,6 +68,10 @@ export const routes: Routes = [
     {
         path:'charlas',
         component:CharlasComponent
+    },
+    {
+        path:'datos-utiles',
+        component:DatosUtilesComponent
     },
     {
         path: '**',
