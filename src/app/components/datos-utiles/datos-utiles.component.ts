@@ -61,6 +61,16 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             nombre: 'Sobre Seguros',
             descripcion: 'Conceptos básicos de seguros',
             imagen: 'assets/img/datos-utiles/sobre_seguros.jpeg'
+          },
+          {
+            nombre: 'Seguro Transporte de Carga',
+            descripcion: 'Cobertura para transporte de carga',
+            imagen: 'assets/img/datos-utiles/seguro_transporte_carga.jpeg'
+          },
+          {
+            nombre: 'Seguro Transporte de Carga - Parte 2',
+            descripcion: 'Más información sobre cobertura de transporte',
+            imagen: 'assets/img/datos-utiles/seguro_transporte_carga_parte_2.jpeg'
           }
         ]
       },
@@ -109,6 +119,16 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             nombre: 'Qué Hacemos',
             descripcion: 'Conoce nuestros servicios',
             imagen: 'assets/img/datos-utiles/que_hacemos.jpeg'
+          },
+          {
+            nombre: 'Feria Comercial AGACECH 2026',
+            descripcion: 'Participación en feria comercial AGACECH',
+            imagen: 'assets/img/datos-utiles/feria_comercial_agacech_2026.jpeg'
+          },
+          {
+            nombre: 'Feria Comercial AGACECH 2026 - Parte 2',
+            descripcion: 'Más momentos de la feria comercial AGACECH',
+            imagen: 'assets/img/feria_comercial_agacech_2026_parte_2.jpeg'
           }
         ]
       }
