@@ -76,23 +76,57 @@
       (click)="cerrarImagen()"
     >
       <div
-        class="relative max-w-5xl max-h-[90vh] flex flex-col"
+        class="relative max-w-4xl max-h-[85vh] w-[90vw] h-[85vh] flex flex-col"
         (click)="$event.stopPropagation()"
       >
+        <!-- Botones de zoom -->
+        <div class="flex gap-2 justify-center mb-4 flex-shrink-0">
+          <button
+            (click)="disminuirZoom()"
+            [disabled]="zoomLevel <= minZoom"
+            class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            −
+          </button>
+          <span class="px-4 py-1 text-white bg-gray-700 rounded min-w-max">
+            {{ (zoomLevel * 100).toFixed(0) }}%
+          </span>
+          <button
+            (click)="aumentarZoom()"
+            [disabled]="zoomLevel >= maxZoom"
+            class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            +
+          </button>
+          <button
+            (click)="resetearZoom()"
+            class="px-3 py-1 bg-gray-600 text-white rounded hover:bg-gray-700 transition-all"
+          >
+            Reset
+          </button>
+        </div>
+
+        <!-- Contenedor con scroll para imagen con zoom -->
+        <div class="flex-1 overflow-auto flex items-center justify-center p-4">
+          <img
+            [src]="imagenExpandida"
+            [alt]="tituloImagenExpandida"
+            [style.transform]="'scale(' + zoomLevel + ')'"
+            class="max-w-full max-h-full object-contain transition-transform duration-200 rounded-lg"
+          />
+        </div>
+
+        <p class="text-white text-center mt-4 text-lg font-semibold flex-shrink-0">
+          {{ tituloImagenExpandida }}
+        </p>
+
+        <!-- Botón cerrar -->
         <button
           (click)="cerrarImagen()"
-          class="absolute -top-10 right-0 text-white hover:text-gray-300 text-4xl font-bold transition-colors"
+          class="absolute -top-8 -right-8 text-white hover:text-gray-300 text-3xl font-bold transition-colors"
         >
           ✕
         </button>
-        <img
-          [src]="imagenExpandida"
-          [alt]="tituloImagenExpandida"
-          class="max-w-full max-h-[80vh] object-contain rounded-lg"
-        />
-        <p class="text-white text-center mt-4 text-lg font-semibold">
-          {{ tituloImagenExpandida }}
-        </p>
       </div>
     </div>
   </div>

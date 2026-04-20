@@ -33,6 +33,9 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
   imagenExpandida: string | null = null;
   tituloImagenExpandida: string = '';
   currentIndex: number = 0;
+  zoomLevel: number = 1;
+  readonly maxZoom: number = 3;
+  readonly minZoom: number = 1;
   private keyboardListener: ((event: KeyboardEvent) => void) | null = null;
   private autoplayInterval: any = null;
 
@@ -128,7 +131,7 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
           {
             nombre: 'Feria Comercial AGACECH 2026 - Parte 2',
             descripcion: 'Más momentos de la feria comercial AGACECH',
-            imagen: 'assets/img/feria_comercial_agacech_2026_parte_2.jpeg'
+            imagen: 'assets/img/datos-utiles/feria_comercial_agacech_2026_parte_2.jpeg'
           }
         ]
       }
@@ -187,13 +190,31 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
   expandirImagen(imagen: string, titulo: string): void {
     this.imagenExpandida = imagen;
     this.tituloImagenExpandida = titulo;
+    this.zoomLevel = 1;
     document.body.style.overflow = 'hidden';
   }
 
   cerrarImagen(): void {
     this.imagenExpandida = null;
     this.tituloImagenExpandida = '';
+    this.zoomLevel = 1;
     document.body.style.overflow = 'auto';
+  }
+
+  aumentarZoom(): void {
+    if (this.zoomLevel < this.maxZoom) {
+      this.zoomLevel += 0.2;
+    }
+  }
+
+  disminuirZoom(): void {
+    if (this.zoomLevel > this.minZoom) {
+      this.zoomLevel -= 0.2;
+    }
+  }
+
+  resetearZoom(): void {
+    this.zoomLevel = 1;
   }
 
   setupKeyboardListener(): void {
