@@ -65,16 +65,7 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             descripcion: 'Conceptos básicos de seguros',
             imagen: 'assets/img/datos-utiles/sobre_seguros.jpeg'
           },
-          {
-            nombre: 'Seguro Transporte de Carga',
-            descripcion: 'Cobertura para transporte de carga',
-            imagen: 'assets/img/datos-utiles/seguro_transporte_carga.jpeg'
-          },
-          {
-            nombre: 'Seguro Transporte de Carga - Parte 2',
-            descripcion: 'Más información sobre cobertura de transporte',
-            imagen: 'assets/img/datos-utiles/seguro_transporte_carga_parte_2.jpeg'
-          }
+
         ]
       },
       {
@@ -106,6 +97,22 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             nombre: 'Infraseguro',
             descripcion: 'Entiende qué es el infraseguro y cómo evitarlo',
             imagen: 'assets/img/datos-utiles/infraseguro.jpeg'
+          }
+        ]
+      },
+      {
+        id: 'transporte',
+        nombre: 'Transporte',
+        documentos: [
+          {
+            nombre: 'Seguro Transporte de Carga',
+            descripcion: 'Cobertura para transporte de carga',
+            imagen: 'assets/img/datos-utiles/seguro_transporte_carga.jpeg'
+          },
+          {
+            nombre: 'Seguro Transporte de Carga - Parte 2',
+            descripcion: 'Más información sobre cobertura de transporte',
+            imagen: 'assets/img/datos-utiles/seguro_transporte_carga_parte_2.jpeg'
           }
         ]
       },
