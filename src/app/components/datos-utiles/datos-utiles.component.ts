@@ -66,6 +66,12 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             imagen: 'assets/img/datos-utiles/sobre_seguros.jpeg'
           },
 
+          {
+            nombre: 'Checklist Safincorp',
+            descripcion: 'Checklist informativo para comunidades y condominios',
+            imagen: 'assets/img/datos-utiles/checklist_safincorp.jpeg'
+          },
+
         ]
       },
       {
