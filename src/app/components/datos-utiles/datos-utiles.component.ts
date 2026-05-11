@@ -50,6 +50,13 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
         id: 'seguros',
         nombre: 'Seguros',
         documentos: [
+
+          {
+            nombre: 'Checklist Safincorp',
+            descripcion: 'Checklist informativo para comunidades y condominios',
+            imagen: 'assets/img/datos-utiles/checklist_safincorp.jpeg'
+          },
+
           {
             nombre: 'Asegura tu Póliza',
             descripcion: 'Conoce cómo asegurar adecuadamente tu póliza',
@@ -66,12 +73,7 @@ export class DatosUtilesComponent implements OnInit, OnDestroy {
             imagen: 'assets/img/datos-utiles/sobre_seguros.jpeg'
           },
 
-          {
-            nombre: 'Checklist Safincorp',
-            descripcion: 'Checklist informativo para comunidades y condominios',
-            imagen: 'assets/img/datos-utiles/checklist_safincorp.jpeg'
-          },
-
+          
         ]
       },
       {
