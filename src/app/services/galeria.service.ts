@@ -22,6 +22,25 @@ export class GaleriaService {
     
     // CATEGORÍA: EVENTOS (cada carpeta es un slide separado)
     {
+      nombre: 'Networking y capacitación para administradores 2026',
+      descripcion: '',
+      link: '',
+      fotos: [
+        'assets/img/fotos-eventos/administradoresCondominios/AdminCondominios1.webp',
+        'assets/img/fotos-eventos/administradoresCondominios/AdminCondominios2.webp',
+        'assets/img/fotos-eventos/administradoresCondominios/AdminCondominios3.webp',
+        'assets/img/fotos-eventos/administradoresCondominios/AdminCondominios4.webp',
+      ],
+      categoria: 'eventos'
+    },
+    {
+      nombre: 'Networking y capacitación para administradores 2026',
+      descripcion: 'Video de invitación al evento',
+      link: 'assets/img/fotos-eventos/administradoresCondominios/administradoresCondominios.mp4',
+      fotos: [],
+      categoria: 'eventos'
+    },
+    {
       nombre: 'Agacech 2025',
       descripcion: 'Video del evento Agacech 2025',
       link: 'assets/img/fotos-eventos/agacech_videos/agacech2025.mp4',
