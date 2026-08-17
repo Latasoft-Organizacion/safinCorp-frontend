@@ -12,6 +12,7 @@ import { DenunciarSiniestroComponent } from './components/denunciar-siniestro/de
 import { ResenaComponent } from './components/resenas/resena.component';
 import { CharlasComponent } from './components/charlas/charlas.component';
 import { DatosUtilesComponent } from './components/datos-utiles/datos-utiles.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
 
 export const routes: Routes = [
     {
@@ -72,6 +73,10 @@ export const routes: Routes = [
     {
         path:'datos-utiles',
         component:DatosUtilesComponent
+    },
+    {
+        path:'cursos',
+        component:CursosComponent
     },
     {
         path: '**',
