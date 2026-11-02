@@ -74,6 +74,22 @@
                  focus:outline-none focus:ring-2 focus:ring-blue-400"
         ></textarea>
       </div>
+      
+      <!-- Aceptación de la Política de Privacidad -->
+      <div class="flex items-start gap-2">
+        <input
+          id="aceptaPrivacidad"
+          type="checkbox"
+          formControlName="aceptaPrivacidad"
+          class="mt-1"
+        />
+        <label for="aceptaPrivacidad" class="text-sm text-gray-600">
+          He leído y acepto la
+          <a routerLink="/politica-privacidad" target="_blank" class="text-blue-500 underline">
+            Política de Privacidad</a>
+          y autorizo el uso de mis datos para responder mi consulta.
+        </label>
+      </div>
   
       <!-- Botón de envío -->
       <button

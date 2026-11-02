@@ -13,6 +13,7 @@ import { ResenaComponent } from './components/resenas/resena.component';
 import { CharlasComponent } from './components/charlas/charlas.component';
 import { DatosUtilesComponent } from './components/datos-utiles/datos-utiles.component';
 import { CursosComponent } from './pages/cursos/cursos.component';
+import { PoliticaPrivacidadComponent } from './pages/politica-privacidad/politica-privacidad.component'; // NUEVO
 
 export const routes: Routes = [
     {
@@ -77,6 +78,10 @@ export const routes: Routes = [
     {
         path:'cursos',
         component:CursosComponent
+    },
+    {
+        path:'politica-privacidad', // NUEVO
+        component:PoliticaPrivacidadComponent
     },
     {
         path: '**',
